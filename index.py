@@ -1,5 +1,7 @@
 import serial
-from flask import Flask,render_template
+import requests
+from flask import Flask, render_template, request
+
 app = Flask(__name__)
 @app.route('/')
 def hello():
@@ -10,6 +12,7 @@ def hello():
 @app.route('/sendtext',methods=['POST'])
 def sendMeganeMode():
 
-    meganeMode = request.form['message']
-
+    return(request.form['megane'])
+    #return request.post('/hello.html')
+    
 app.run(debug=True)
