@@ -17,4 +17,4 @@ def sendMeganeMode():
         ser.close()
         return encoded_meganeMode
 
-app.run(debug=True)
+app.run(app, host='0.0.0.0', port=8000)
