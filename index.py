@@ -11,8 +11,12 @@ def hello():
 
 @app.route('/sendtext',methods=['POST'])
 def sendMeganeMode():
+    meganeMode = request.form['megane']
+    encoded_meganeMode = meganeMode.encode(encoding='utf-8')
+    with serial.Serial('COM6',9600) as ser:
+        #return(i)
+        ser.write(encoded_meganeMode)
+        ser.close()
+        return encoded_meganeMode
 
-    return(request.form['megane'])
-    #return request.post('/hello.html')
-    
 app.run(debug=True)
